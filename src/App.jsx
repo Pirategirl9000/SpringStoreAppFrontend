@@ -1,27 +1,31 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
-
+import Home from "./Home.jsx";
+import Browse from "./Browse.jsx";
+import Contact from "./Contact.jsx";
+import About from "./About.jsx";
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 
 export default function App() {
     return (
-        <SendHTTPRequest />
-    )
-}
+        <>
+            <BrowserRouter>
+                {/* Header Pane */}
+                <nav>
+                    <Link to="/">Home</Link> | {" "}
+                    <Link to="/browse">Browse</Link> | {" "}
+                    <Link to="/about">About</Link> | {" "}
+                    <Link to="/contact">Contact</Link>
+                </nav>
 
-function SendHTTPRequest() {
-    let [data, setData] = useState(0);
 
-    useEffect( () => {
-        const BACKENDURL = "http://localhost:8080/req"
+                {/* Content Pane */}
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/browse" element={<Browse />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/about" element={<About />} />
 
-        axios.get(BACKENDURL)
-            .then(response => {
-                setData(response.data);
-            }).catch(error => {console.log(error);})
-    }, []);
-
-    return (
-        <h1>{data}</h1>
+                </Routes>
+            </BrowserRouter>
+        </>
     )
 }
