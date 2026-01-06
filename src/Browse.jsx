@@ -17,7 +17,8 @@ function ProductList() {
 
 
     return (
-        products.map(prod => <ProductTile product={prod} />)
+        products.map(prod =>
+            <li key={prod.id}><ProductTile product={prod} /></li>)
     )
 }
 
