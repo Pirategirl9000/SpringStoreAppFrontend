@@ -1,6 +1,7 @@
 export default function ProductTile({product}) {
     const name = product.prodName;
-    const description = product.prodDesc.slice(0, 50);  // Only display first 50 letters of the string
+    const descriptionArray = product.prodDesc.split(" ")
+    const description = (descriptionArray.length > 20) ? descriptionArray.slice(0, 20).join(" ").concat("...") : descriptionArray.join(" ")
     const price = (product.prodPrice.toString().includes(".")) ? "$".concat(product.prodPrice.toString()) : "$".concat(product.prodPrice.toString().concat(".00"));
 
 
