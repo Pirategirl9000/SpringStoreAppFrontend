@@ -1,5 +1,6 @@
 import useCategories from "./Hooks/Categories.jsx"
 import useProducts from "./Hooks/Products.jsx";
+import ProductTile from "./Components/ProductTile.jsx";
 
 export default function Browse() {
 
@@ -16,7 +17,7 @@ function ProductList() {
 
 
     return (
-        products.map(prod => <li key={prod.id}>{prod.prodName}</li>)
+        products.map(prod => <ProductTile product={prod} />)
     )
 }
 
