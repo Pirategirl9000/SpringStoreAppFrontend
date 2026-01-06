@@ -1,12 +1,22 @@
-import axios from "axios";
-import {useEffect, useState} from "react";
+import useCategories from "./Hooks/Categories.jsx"
+import useProducts from "./Hooks/Products.jsx";
 
 export default function Browse() {
 
     return (
         <div>
             <CategoryChecklist />
+            <ProductList />
         </div>
+    )
+}
+
+function ProductList() {
+    const products = useProducts();
+
+
+    return (
+        products.map(prod => <li key={prod.id}>{prod.prodName}</li>)
     )
 }
 
@@ -35,21 +45,6 @@ function CategoryChecklist() {
             <button type="submit">Filter by Selected</button>
         </form>
     )
-
-}
-
-function useCategories() {
-    const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        async function load() {
-            const res = await axios.get("http://localhost:8080/products/categories")
-            setCategories(res.data);
-        }
-        load();
-    }, []);
-
-    return categories;
 }
 
 function handleSubmit() {
