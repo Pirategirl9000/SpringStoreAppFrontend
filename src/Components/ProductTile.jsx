@@ -1,3 +1,5 @@
+import "/src/StyleSheets/ProductTile.css";
+
 export default function ProductTile({product}) {
     const name = product.prodName;
     const descriptionArray = product.prodDesc.split(" ")
@@ -8,11 +10,9 @@ export default function ProductTile({product}) {
 
     return (
         <div className="productTile">
-            <h4>{name}</h4>
-            <h6>{description}</h6>
-            <h6>{price}</h6>
-
-
+            <h4 className="productName">{name}</h4>
+            <h5 className="productDesc">{description}</h5>
+            <h5 className="productPrice">{price}</h5>
         </div>
     )
 }

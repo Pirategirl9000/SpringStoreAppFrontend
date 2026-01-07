@@ -1,0 +1,25 @@
+.productTile {
+    position: relative;
+    background: lightgrey;
+    width: 250px;
+    height: 150px;
+}
+
+.productName {
+    color: blue;
+    top: 0;
+    left: 0;
+}
+
+.productDesc {
+    position: absolute;
+    top: 5px;
+}
+
+
+.productPrice {
+    position: absolute;
+    font-size: 15px;
+    bottom: -15px;
+    left: 0;
+}
