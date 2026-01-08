@@ -1,0 +1,17 @@
+/* Make all the links blue */
+a:link, a:visited {
+    color: blue;
+}
+
+nav {
+    text-align: center;
+    word-spacing: 20px;
+}
+
+#navBar {
+    background: teal;
+    padding: 5px;
+    font-size: 20px;
+    position: sticky;
+    top: 0;
+}

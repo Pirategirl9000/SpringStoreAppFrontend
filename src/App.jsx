@@ -4,12 +4,14 @@ import Contact from "./Contact.jsx";
 import About from "./About.jsx";
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 
+import "/src/StyleSheets/NavBar.css"
+
 export default function App() {
     return (
         <>
             <BrowserRouter>
                 {/* Header Pane */}
-                <nav>
+                <nav id="navBar">
                     <Link to="/">Home</Link> | {" "}
                     <Link to="/browse">Browse</Link> | {" "}
                     <Link to="/about">About</Link> | {" "}
