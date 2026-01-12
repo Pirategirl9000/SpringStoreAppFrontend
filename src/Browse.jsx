@@ -2,13 +2,15 @@ import useCategories from "./Hooks/Categories.jsx"
 import useProducts from "./Hooks/Products.jsx";
 import ProductTile from "./Components/ProductTile.jsx";
 
+import "/src/StyleSheets/ProductList.css";
+
 export default function Browse() {
 
     return (
-        <div>
+        <>
             <CategoryChecklist />
             <ProductList />
-        </div>
+        </>
     )
 }
 
@@ -17,8 +19,9 @@ function ProductList() {
 
 
     return (
-        products.map(prod =>
-            <li key={prod.id}><ProductTile product={prod} /></li>)
+        <div className="productList">
+            {products.map(prod => (<ProductTile key={prod.id} product={prod} />))}
+        </div>
     )
 }
 
@@ -26,7 +29,7 @@ function CategoryChecklist() {
     const categories = useCategories();
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id="categoryForm">
             {categories.map(cat => {
                 const category = cat.category;
 
