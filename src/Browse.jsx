@@ -3,6 +3,7 @@ import useProducts from "./Hooks/Products.jsx";
 import ProductTile from "./Components/ProductTile.jsx";
 
 import "/src/StyleSheets/ProductList.css";
+import "/src/StyleSheets/CategoryForm.css";
 
 export default function Browse() {
 
@@ -30,24 +31,24 @@ function CategoryChecklist() {
 
     return (
         <form onSubmit={handleSubmit} id="categoryForm">
-            {categories.map(cat => {
-                const category = cat.category;
+            <div id="categoriesCheckboxes">
+                {categories.map(cat => {
+                    const category = cat.category;
 
-                // Categories are originally all caps so we convert it to a more UI friendly version
-                const categoryLabel = category.charAt(0) + category.substring(1, category.length).toLowerCase();
+                    // Categories are originally all caps so we convert it to a more UI friendly version
+                    const categoryLabel = category.charAt(0) + category.substring(1, category.length).toLowerCase();
 
 
-                return (
-                    <li key={category}>
-                        <label>
+                    return (
+                        <label key={category} className="categoryLabel">
                             {categoryLabel}
-                            <input id={category} name={category} type="checkbox"/>
+                            <input id={category} name={category} type="checkbox" className="categoryInput"/>
                         </label>
-                    </li>
-                )
-            })}
+                    )
+                })}
+            </div>
 
-            <button type="submit">Filter by Selected</button>
+            <button type="submit" id="submitButton">Filter by Selected</button>
         </form>
     )
 }
