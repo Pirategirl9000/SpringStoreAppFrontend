@@ -2,24 +2,24 @@
     position: relative;
     background: lightgrey;
     width: 250px;
-    height: 150px;
+    height: 175px;
+    border: 2px ridge whitesmoke;
 }
 
 .productName {
     color: blue;
-    top: 0;
-    left: 0;
+    padding-left: 7px;
+    margin-bottom: 5px;
 }
 
 .productDesc {
-    position: absolute;
-    top: 5px;
+    padding-left: 7px;
 }
 
 
 .productPrice {
     position: absolute;
+    bottom: 0;
+    padding-left: 7px;
     font-size: 15px;
-    bottom: -15px;
-    left: 0;
 }
